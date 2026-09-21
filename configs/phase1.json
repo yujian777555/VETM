@@ -1,0 +1,9 @@
+{
+  "problems": ["ZDT1", "ZDT2", "ZDT3", "ZDT4", "ZDT6", "DTLZ1", "DTLZ2"],
+  "n_var": 10,
+  "n_obj": 3,
+  "population_size": 40,
+  "generations": 30,
+  "seeds": [0, 1, 2],
+  "output": "data/experiences.jsonl"
+}
