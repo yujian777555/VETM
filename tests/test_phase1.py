@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from vetm.dataset import record_from_run, task_instance_split, numeric_features, write_jsonl
+from vetm.dataset import record_from_run, task_group_assignment, task_instance_split, numeric_features, write_jsonl
 from vetm.metrics import auroc, evaluate_predictions
 from vetm.nsga2 import NSGA2Config, run_nsga2, hypervolume_2d
 from vetm.problems import get_problem, ProblemSpec
@@ -131,3 +131,9 @@ def test_jsonl_rejects_nonfinite(tmp_path):
     with pytest.raises(ValueError):
         write_jsonl([{"metric": float("nan")}], tmp_path / "bad.jsonl")
 
+
+
+def test_source_bank_uses_same_task_assignment_as_target_split():
+    assignment = task_group_assignment(["ZDT1", "ZDT2", "ZDT3", "ZDT4", "ZDT6", "DTLZ1", "DTLZ2"], seed=0)
+    assert {task for task, split in assignment.items() if split == "train"} == {"ZDT1", "ZDT2", "ZDT3", "ZDT6"}
+    assert not {"ZDT4", "DTLZ1", "DTLZ2"} & {task for task, split in assignment.items() if split == "train"}

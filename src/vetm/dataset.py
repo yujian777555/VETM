@@ -87,6 +87,21 @@ def make_transfer_example(record: ExperienceRecord, target_task: dict, *, label:
     )
 
 
+def task_group_assignment(task_ids: Sequence[str], *, train_fraction: float = 0.6, validation_fraction: float = 0.2, seed: int = 0) -> dict[str, str]:
+    """返回与 task_instance_split 相同的任务级归属。"""
+    unique = sorted(set(task_ids))
+    if len(unique) < 3:
+        raise ValueError("至少需要三个目标任务组才能创建 train/validation/test")
+    shuffled = np.asarray(unique, dtype=object)
+    np.random.default_rng(seed).shuffle(shuffled)
+    train_end = min(len(shuffled) - 2, max(1, int(round(len(shuffled) * train_fraction))))
+    validation_end = min(len(shuffled) - 1, train_end + max(1, int(round(len(shuffled) * validation_fraction))))
+    assignment = {task: "train" for task in shuffled[:train_end]}
+    assignment.update({task: "validation" for task in shuffled[train_end:validation_end]})
+    assignment.update({task: "test" for task in shuffled[validation_end:]})
+    return assignment
+
+
 def task_instance_split(examples: Sequence[TransferExample], *, train_fraction: float = 0.6, validation_fraction: float = 0.2, seed: int = 0) -> dict[str, list[TransferExample]]:
     """按 target problem_id 切分，保证同一任务实例不会跨 split。"""
     if train_fraction <= 0 or validation_fraction <= 0 or train_fraction + validation_fraction >= 1:
@@ -97,15 +112,7 @@ def task_instance_split(examples: Sequence[TransferExample], *, train_fraction: 
         groups.setdefault(key, []).append(example)
     if len(groups) < 3:
         raise ValueError("至少需要三个目标任务组才能创建 train/validation/test")
-    task_ids = np.asarray(sorted(groups), dtype=object)
-    rng = np.random.default_rng(seed)
-    rng.shuffle(task_ids)
-    n = len(task_ids)
-    train_end = max(1, int(round(n * train_fraction)))
-    validation_end = min(n - 1, train_end + max(1, int(round(n * validation_fraction))))
-    assignments = {task: "train" for task in task_ids[:train_end]}
-    assignments.update({task: "validation" for task in task_ids[train_end:validation_end]})
-    assignments.update({task: "test" for task in task_ids[validation_end:]})
+    assignments = task_group_assignment(list(groups), train_fraction=train_fraction, validation_fraction=validation_fraction, seed=seed)
     output = {"train": [], "validation": [], "test": []}
     for task, rows in groups.items():
         output[assignments[task]].extend(rows)

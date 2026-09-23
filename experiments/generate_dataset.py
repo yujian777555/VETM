@@ -11,7 +11,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from vetm.dataset import make_transfer_example, record_from_run, task_instance_split, write_jsonl
+from vetm.dataset import (
+    make_transfer_example,
+    record_from_run,
+    task_group_assignment,
+    task_instance_split,
+    write_jsonl,
+)
 from vetm.nsga2 import NSGA2Config, run_nsga2
 from vetm.problems import get_problem
 from vetm.schema import ExperienceRecord, TransferExample
@@ -26,7 +32,12 @@ def _failure_record(problem_name: str, seed: int, error: Exception) -> Experienc
         algorithm="NSGA-II",
         parameters={"population_size": 2, "generations": 0},
         trajectory=[],
-        outcome={"success": False, "failure_reason": type(error).__name__ + ": " + str(error)},
+        outcome={
+            "success": False,
+            "failure_reason": f"{type(error).__name__}: {error}",
+            "function_evaluations": 0,
+            "status": "failed",
+        },
         seed=seed,
     )
 
@@ -40,8 +51,6 @@ def generate(problems: list[str], seeds: list[int], config: NSGA2Config, output_
         for seed in seeds:
             source_config = replace(
                 config,
-                population_size=config.population_size,
-                generations=config.generations,
                 crossover_probability=0.8 + 0.05 * ((problem_index + seed) % 3),
                 eta_m=10.0 + 5.0 * ((problem_index + seed) % 3),
             )
@@ -56,12 +65,14 @@ def generate(problems: list[str], seeds: list[int], config: NSGA2Config, output_
         try:
             run_nsga2(problem, NSGA2Config(population_size=2, generations=1), seed=0)
         except Exception as error:
-            failed = _failure_record(problem_name, 0, error)
-            experiences.append(failed.to_dict())
+            experiences.append(_failure_record(problem_name, 0, error).to_dict())
             failures += 1
 
+    assignment = task_group_assignment(problems, seed=0)
+    source_tasks = {task for task, split in assignment.items() if split == "train"}
+    source_bank = [row for row in successes if row.task_features["problem_id"] in source_tasks]
     examples = []
-    for source in successes:
+    for source in source_bank:
         for target_name in problems:
             target = get_problem(target_name, n_var=10, n_obj=3)
             for target_seed in seeds:
@@ -76,7 +87,7 @@ def generate(problems: list[str], seeds: list[int], config: NSGA2Config, output_
     write_jsonl(experiences, output_dir / "experiences.jsonl")
     write_jsonl(examples, output_dir / "transfer_examples.jsonl")
     split_rows = task_instance_split(
-        [TransferExample.from_dict(x) for x in examples], seed=0
+        [TransferExample.from_dict(row) for row in examples], seed=0
     )
     for name, rows in split_rows.items():
         write_jsonl([row.to_dict() for row in rows], output_dir / f"{name}.jsonl")
@@ -84,6 +95,8 @@ def generate(problems: list[str], seeds: list[int], config: NSGA2Config, output_
         "experience_count": len(experiences),
         "successful_experiences": len(successes),
         "failed_experiences": failures,
+        "source_bank_experiences": len(source_bank),
+        "source_bank_tasks": sorted(source_tasks),
         "transfer_example_count": len(examples),
         "positive_transfer_examples": int(sum(row["label"] for row in examples)),
         "problems": problems,
