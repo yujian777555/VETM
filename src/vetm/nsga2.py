@@ -18,6 +18,7 @@ class NSGA2Config:
     mutation_probability: float | None = None
     eta_c: float = 15.0
     eta_m: float = 20.0
+    tournament_size: int = 2
 
 
 def dominates(a: np.ndarray, b: np.ndarray) -> bool:
@@ -78,11 +79,14 @@ def _rank_and_crowding(values: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     return ranks, crowd
 
 
-def _tournament(rng: np.random.Generator, ranks: np.ndarray, crowd: np.ndarray) -> int:
-    a, b = rng.integers(0, len(ranks), size=2)
-    if ranks[a] < ranks[b] or (ranks[a] == ranks[b] and crowd[a] > crowd[b]):
-        return int(a)
-    return int(b)
+def _tournament(rng: np.random.Generator, ranks: np.ndarray, crowd: np.ndarray, size: int = 2) -> int:
+    candidates = rng.integers(0, len(ranks), size=max(2, int(size)))
+    winner = int(candidates[0])
+    for candidate in candidates[1:]:
+        candidate = int(candidate)
+        if ranks[candidate] < ranks[winner] or (ranks[candidate] == ranks[winner] and crowd[candidate] > crowd[winner]):
+            winner = candidate
+    return winner
 
 
 def _sbx(a: np.ndarray, b: np.ndarray, lower: np.ndarray, upper: np.ndarray, eta: float, rng: np.random.Generator) -> tuple[np.ndarray, np.ndarray]:
@@ -151,6 +155,8 @@ class NSGA2:
         if cfg.population_size < 4 or cfg.generations < 1:
             raise ValueError("population_size >= 4 且 generations >= 1")
         mutation_probability = (1.0 / self.problem.n_var if cfg.mutation_probability is None else cfg.mutation_probability)
+        if cfg.tournament_size < 2:
+            raise ValueError("tournament_size 至少为 2")
         population = self.rng.uniform(lower, upper, size=(cfg.population_size, self.problem.n_var))
         objectives = self.problem.evaluate(population)
         history: list[dict[str, float | int]] = []
@@ -172,8 +178,8 @@ class NSGA2:
                 break
             offspring: list[np.ndarray] = []
             while len(offspring) < cfg.population_size:
-                p1 = population[_tournament(self.rng, ranks, crowd)]
-                p2 = population[_tournament(self.rng, ranks, crowd)]
+                p1 = population[_tournament(self.rng, ranks, crowd, cfg.tournament_size)]
+                p2 = population[_tournament(self.rng, ranks, crowd, cfg.tournament_size)]
                 if self.rng.random() <= cfg.crossover_probability:
                     c1, c2 = _sbx(p1, p2, lower, upper, cfg.eta_c, self.rng)
                 else:
@@ -216,6 +222,7 @@ class NSGA2:
                 "mutation_probability": mutation_probability,
                 "eta_c": cfg.eta_c,
                 "eta_m": cfg.eta_m,
+                "tournament_size": cfg.tournament_size,
             },
         }
 

@@ -118,3 +118,26 @@ def get_problem(name: str, *, n_var: int | None = None, n_obj: int = 3) -> Probl
     if normalized.startswith("DTLZ"):
         return _dtlz(normalized, n_var or (n_obj + 4), n_obj)
     raise KeyError(f"未知 benchmark: {name}")
+
+
+def reference_front(problem: ProblemSpec) -> np.ndarray:
+    """由问题定义固定生成参考 Pareto 前沿，不读取算法运行结果。"""
+    name = problem.name
+    if name.startswith("ZDT"):
+        if name == "ZDT3":
+            intervals = [(0, .0830015349), (.182228728, .2577623634),
+                         (.4093136748, .4538821041), (.6183967944, .6525117038),
+                         (.8233317983, .8518328654)]
+            x = np.concatenate([np.linspace(a, b, 60) for a, b in intervals])
+            y = 1 - np.sqrt(x) - x * np.sin(10 * np.pi * x)
+        else:
+            x = np.linspace(.2807753191 if name == "ZDT6" else 0, 1, 300)
+            y = 1 - (x ** 2 if name in {"ZDT2", "ZDT6"} else np.sqrt(x))
+        return np.column_stack([x, y])
+    directions = np.vstack([
+        np.eye(problem.n_obj),
+        np.random.default_rng(1729).dirichlet(np.ones(problem.n_obj), 300),
+    ])
+    if name == "DTLZ1":
+        return .5 * directions
+    return directions / np.linalg.norm(directions, axis=1, keepdims=True)
