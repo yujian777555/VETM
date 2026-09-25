@@ -1,0 +1,65 @@
+{
+  "before_zero_HV_ratio": 0.6666666666666666,
+  "after_zero_HV_ratio": 0.375,
+  "zero_HV_ratio_decreased": true,
+  "invalid_tasks": [
+    "DTLZ1_n7_m3",
+    "ZDT4_n10_m2",
+    "ZDT6_n20_m2"
+  ],
+  "healthy_task_count": 5,
+  "stable_sign_reversals_on_healthy_tasks": {
+    "mutation_prob_04": [
+      [
+        "ZDT1_n10_m2",
+        "neutral"
+      ],
+      [
+        "ZDT1_n20_m2",
+        "positive"
+      ],
+      [
+        "ZDT2_n10_m2",
+        "neutral"
+      ],
+      [
+        "ZDT3_n20_m2",
+        "positive"
+      ],
+      [
+        "DTLZ2_n7_m3",
+        "negative"
+      ]
+    ],
+    "mutation_eta_01": [
+      [
+        "ZDT1_n10_m2",
+        "neutral"
+      ],
+      [
+        "ZDT1_n20_m2",
+        "positive"
+      ],
+      [
+        "ZDT2_n10_m2",
+        "positive"
+      ],
+      [
+        "ZDT3_n20_m2",
+        "positive"
+      ],
+      [
+        "DTLZ2_n7_m3",
+        "negative"
+      ]
+    ]
+  },
+  "heldout_condition_count": 40,
+  "heldout_mae_global_intervention_mean": 0.026871981736846344,
+  "heldout_mae_zero_gain_baseline": 0.006213399196167996,
+  "heldout_signal_above_zero_baseline": false,
+  "all_runs_budget_equal": true,
+  "go_no_go": "NO-GO",
+  "reason": "有两个健康任务上的符号翻转，但 3 个任务 metric invalid，且 family-held-out 预测劣于零增益基线。",
+  "comparison_caveat": "before 与 after 来自不同种子数、预算和干预集合，零 HV 比率变化不能归因为单一因素。"
+}

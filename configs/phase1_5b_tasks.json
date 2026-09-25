@@ -1,0 +1,17 @@
+{
+  "seed_count": 10,
+  "population_size": 50,
+  "generations": 39,
+  "evaluation_budget": 2000,
+  "practical_tolerance": 0.01,
+  "tasks": [
+    {"task_id":"ZDT1_n10_m2","problem":"ZDT1","n_var":10,"n_obj":2},
+    {"task_id":"ZDT1_n20_m2","problem":"ZDT1","n_var":20,"n_obj":2},
+    {"task_id":"ZDT2_n10_m2","problem":"ZDT2","n_var":10,"n_obj":2},
+    {"task_id":"ZDT3_n20_m2","problem":"ZDT3","n_var":20,"n_obj":2},
+    {"task_id":"ZDT4_n10_m2","problem":"ZDT4","n_var":10,"n_obj":2},
+    {"task_id":"ZDT6_n20_m2","problem":"ZDT6","n_var":20,"n_obj":2},
+    {"task_id":"DTLZ1_n7_m3","problem":"DTLZ1","n_var":7,"n_obj":3},
+    {"task_id":"DTLZ2_n7_m3","problem":"DTLZ2","n_var":7,"n_obj":3}
+  ]
+}

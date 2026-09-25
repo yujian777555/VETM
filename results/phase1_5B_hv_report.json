@@ -1,0 +1,189 @@
+{
+  "tasks": {
+    "ZDT1_n10_m2": {
+      "problem": "ZDT1",
+      "n_var": 10,
+      "n_obj": 2,
+      "ideal": [
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        1.0
+      ],
+      "raw_reference": [
+        1.1,
+        1.1
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "ZDT1_n20_m2": {
+      "problem": "ZDT1",
+      "n_var": 20,
+      "n_obj": 2,
+      "ideal": [
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        1.0
+      ],
+      "raw_reference": [
+        1.1,
+        1.1
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "ZDT2_n10_m2": {
+      "problem": "ZDT2",
+      "n_var": 10,
+      "n_obj": 2,
+      "ideal": [
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        1.0
+      ],
+      "raw_reference": [
+        1.1,
+        1.1
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "ZDT3_n20_m2": {
+      "problem": "ZDT3",
+      "n_var": 20,
+      "n_obj": 2,
+      "ideal": [
+        0.0,
+        -0.7733690123266405
+      ],
+      "nadir": [
+        0.8518328654,
+        1.0
+      ],
+      "raw_reference": [
+        0.9370161519400001,
+        1.177336901232664
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "ZDT4_n10_m2": {
+      "problem": "ZDT4",
+      "n_var": 10,
+      "n_obj": 2,
+      "ideal": [
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        1.0
+      ],
+      "raw_reference": [
+        1.1,
+        1.1
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "ZDT6_n20_m2": {
+      "problem": "ZDT6",
+      "n_var": 20,
+      "n_obj": 2,
+      "ideal": [
+        0.2807753191,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        0.9211652201842931
+      ],
+      "raw_reference": [
+        1.07192246809,
+        1.0132817422027225
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1
+      ]
+    },
+    "DTLZ1_n7_m3": {
+      "problem": "DTLZ1",
+      "n_var": 7,
+      "n_obj": 3,
+      "ideal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "raw_reference": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1,
+        1.1
+      ]
+    },
+    "DTLZ2_n7_m3": {
+      "problem": "DTLZ2",
+      "n_var": 7,
+      "n_obj": 3,
+      "ideal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nadir": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "raw_reference": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "normalized_reference": [
+        1.1,
+        1.1,
+        1.1
+      ]
+    }
+  },
+  "before": {
+    "available": true,
+    "source": "D:\\VETM\\results\\phase1_5_transfer_matrix.csv",
+    "raw_zero_HV_ratio": 0.6666666666666666
+  },
+  "after": {
+    "normalized_HV_reference": 1.1,
+    "task_count": 8
+  }
+}

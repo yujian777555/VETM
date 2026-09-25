@@ -1,0 +1,403 @@
+{
+  "pilot": false,
+  "task_count": 8,
+  "seed_count": 10,
+  "population_size": 50,
+  "evaluation_budget": 2000,
+  "condition_count": 154,
+  "raw_row_count": 1540,
+  "positive_groups": 14,
+  "negative_groups": 14,
+  "neutral_groups": 126,
+  "interventions_with_sign_reversal": 2,
+  "sign_reversal_fraction": 0.1,
+  "heldout_transfer_signal": [
+    {
+      "intervention_id": "mutation_prob_01",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.0221767534318513,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_02",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.018935626813869295,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_03",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.01821740471641219,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_04",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.009265565495382362,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_05",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.01238016218896247,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_01",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.056123183471611986,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_02",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.05563476750267413,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_03",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.03503558506163295,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_04",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.03776742713844678,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_05",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.058066781941810454,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_01",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.04610225570978152,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_02",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.02462621491887673,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_03",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.0064306025919806,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_01",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.005090786320637727,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_02",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.007458279368967841,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_03",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.012718790876382108,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_04",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.016880318999026037,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_01",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": -0.002175373225719741,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_02",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.02411362304231202,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_03",
+      "task_id": "DTLZ1_n7_m3",
+      "predicted_delta": 0.011231011344940514,
+      "actual_delta": 0.0,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_01",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.0221767534318513,
+      "actual_delta": 0.009610973979349102,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_02",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.018935626813869295,
+      "actual_delta": 0.002302828170347537,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_03",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.01821740471641219,
+      "actual_delta": -0.013798051891257813,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_prob_04",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.009265565495382362,
+      "actual_delta": -0.02339970909249871,
+      "actual_state": "negative"
+    },
+    {
+      "intervention_id": "mutation_prob_05",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.01238016218896247,
+      "actual_delta": -0.05131719064620912,
+      "actual_state": "negative"
+    },
+    {
+      "intervention_id": "mutation_eta_01",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.056123183471611986,
+      "actual_delta": -0.017976851492410507,
+      "actual_state": "negative"
+    },
+    {
+      "intervention_id": "mutation_eta_02",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.05563476750267413,
+      "actual_delta": -0.012021687748427812,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_03",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.03503558506163295,
+      "actual_delta": -0.008327303441245526,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_04",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.03776742713844678,
+      "actual_delta": 0.015150785238776054,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "mutation_eta_05",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.058066781941810454,
+      "actual_delta": -0.009293038444646295,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_01",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.04610225570978152,
+      "actual_delta": -0.01811898356207009,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_02",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.02462621491887673,
+      "actual_delta": -0.012644879561440624,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_prob_03",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.0064306025919806,
+      "actual_delta": 0.0033355772680432327,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_01",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.005090786320637727,
+      "actual_delta": -0.005358681816162858,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_02",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.007458279368967841,
+      "actual_delta": -0.004074075866401394,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_03",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.012718790876382108,
+      "actual_delta": -0.005541416473033256,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "crossover_eta_04",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.016880318999026037,
+      "actual_delta": 0.013916987579593343,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_01",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": -0.002175373225719741,
+      "actual_delta": -0.00857093958875198,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_02",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.02411362304231202,
+      "actual_delta": 0.0014666044534485168,
+      "actual_state": "neutral"
+    },
+    {
+      "intervention_id": "selection_tournament_03",
+      "task_id": "DTLZ2_n7_m3",
+      "predicted_delta": 0.011231011344940514,
+      "actual_delta": -0.012309401532606045,
+      "actual_state": "neutral"
+    }
+  ],
+  "metric_health": {
+    "tasks": [
+      {
+        "zero_HV_ratio": 0.0,
+        "objective_range": [
+          0.9995125034224094,
+          1.141271136098651
+        ],
+        "dominated_ratio": 0.62,
+        "normalization_valid": true,
+        "invalid": false,
+        "task_id": "ZDT1_n10_m2",
+        "problem": "ZDT1"
+      },
+      {
+        "zero_HV_ratio": 0.0,
+        "objective_range": [
+          0.9660978543108679,
+          1.1412929518368167
+        ],
+        "dominated_ratio": 0.76,
+        "normalization_valid": true,
+        "invalid": false,
+        "task_id": "ZDT1_n20_m2",
+        "problem": "ZDT1"
+      },
+      {
+        "zero_HV_ratio": 0.0,
+        "objective_range": [
+          0.9029818795064403,
+          0.9568068322773384
+        ],
+        "dominated_ratio": 0.712,
+        "normalization_valid": true,
+        "invalid": false,
+        "task_id": "ZDT2_n10_m2",
+        "problem": "ZDT2"
+      },
+      {
+        "zero_HV_ratio": 0.0,
+        "objective_range": [
+          0.853098534741068,
+          1.897252475600172
+        ],
+        "dominated_ratio": 0.754,
+        "normalization_valid": true,
+        "invalid": false,
+        "task_id": "ZDT3_n20_m2",
+        "problem": "ZDT3"
+      },
+      {
+        "zero_HV_ratio": 1.0,
+        "objective_range": [
+          0.5209741150833663,
+          94.21182423105824
+        ],
+        "dominated_ratio": 0.982,
+        "normalization_valid": true,
+        "invalid": true,
+        "task_id": "ZDT4_n10_m2",
+        "problem": "ZDT4"
+      },
+      {
+        "zero_HV_ratio": 1.0,
+        "objective_range": [
+          0.7192246788988099,
+          2.2743188164310784
+        ],
+        "dominated_ratio": 0.974,
+        "normalization_valid": true,
+        "invalid": true,
+        "task_id": "ZDT6_n20_m2",
+        "problem": "ZDT6"
+      },
+      {
+        "zero_HV_ratio": 1.0,
+        "objective_range": [
+          244.8088899401607,
+          120.95963682454007,
+          290.92786675468955
+        ],
+        "dominated_ratio": 0.828,
+        "normalization_valid": true,
+        "invalid": true,
+        "task_id": "DTLZ1_n7_m3",
+        "problem": "DTLZ1"
+      },
+      {
+        "zero_HV_ratio": 0.0,
+        "objective_range": [
+          1.3273236668046113,
+          1.1608130421321547,
+          1.257851498711258
+        ],
+        "dominated_ratio": 0.24,
+        "normalization_valid": true,
+        "invalid": false,
+        "task_id": "DTLZ2_n7_m3",
+        "problem": "DTLZ2"
+      }
+    ],
+    "aggregate_invalid_task_count": 3,
+    "zero_HV_ratio": 0.375,
+    "normalization_valid": true
+  },
+  "go_no_go": "NO-GO",
+  "go_no_go_reason": "Phase 1.5B establishes calibrated paired data; Phase 2 requires held-out predictor validation and stable sign reversals."
+}

@@ -1,0 +1,105 @@
+{
+  "tasks": [
+    {
+      "zero_HV_ratio": 0.0,
+      "objective_range": [
+        0.9995125034224094,
+        1.141271136098651
+      ],
+      "dominated_ratio": 0.62,
+      "normalization_valid": true,
+      "invalid": false,
+      "task_id": "ZDT1_n10_m2",
+      "problem": "ZDT1"
+    },
+    {
+      "zero_HV_ratio": 0.0,
+      "objective_range": [
+        0.9660978543108679,
+        1.1412929518368167
+      ],
+      "dominated_ratio": 0.76,
+      "normalization_valid": true,
+      "invalid": false,
+      "task_id": "ZDT1_n20_m2",
+      "problem": "ZDT1"
+    },
+    {
+      "zero_HV_ratio": 0.0,
+      "objective_range": [
+        0.9029818795064403,
+        0.9568068322773384
+      ],
+      "dominated_ratio": 0.712,
+      "normalization_valid": true,
+      "invalid": false,
+      "task_id": "ZDT2_n10_m2",
+      "problem": "ZDT2"
+    },
+    {
+      "zero_HV_ratio": 0.0,
+      "objective_range": [
+        0.853098534741068,
+        1.897252475600172
+      ],
+      "dominated_ratio": 0.754,
+      "normalization_valid": true,
+      "invalid": false,
+      "task_id": "ZDT3_n20_m2",
+      "problem": "ZDT3"
+    },
+    {
+      "zero_HV_ratio": 1.0,
+      "objective_range": [
+        0.5209741150833663,
+        94.21182423105824
+      ],
+      "dominated_ratio": 0.982,
+      "normalization_valid": true,
+      "invalid": true,
+      "task_id": "ZDT4_n10_m2",
+      "problem": "ZDT4"
+    },
+    {
+      "zero_HV_ratio": 1.0,
+      "objective_range": [
+        0.7192246788988099,
+        2.2743188164310784
+      ],
+      "dominated_ratio": 0.974,
+      "normalization_valid": true,
+      "invalid": true,
+      "task_id": "ZDT6_n20_m2",
+      "problem": "ZDT6"
+    },
+    {
+      "zero_HV_ratio": 1.0,
+      "objective_range": [
+        244.8088899401607,
+        120.95963682454007,
+        290.92786675468955
+      ],
+      "dominated_ratio": 0.828,
+      "normalization_valid": true,
+      "invalid": true,
+      "task_id": "DTLZ1_n7_m3",
+      "problem": "DTLZ1"
+    },
+    {
+      "zero_HV_ratio": 0.0,
+      "objective_range": [
+        1.3273236668046113,
+        1.1608130421321547,
+        1.257851498711258
+      ],
+      "dominated_ratio": 0.24,
+      "normalization_valid": true,
+      "invalid": false,
+      "task_id": "DTLZ2_n7_m3",
+      "problem": "DTLZ2"
+    }
+  ],
+  "aggregate_invalid_task_count": 3,
+  "zero_HV_ratio": 0.375,
+  "normalization_valid": true
+}
