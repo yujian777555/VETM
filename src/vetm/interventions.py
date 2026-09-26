@@ -17,6 +17,25 @@ class Intervention:
         values.update(self.parameters)
         return NSGA2Config(**values)
 
+    def descriptor(self, base: NSGA2Config, n_var: int) -> dict[str, Any]:
+        default = 1.0 / n_var if base.mutation_probability is None else base.mutation_probability
+        key, value = next(iter(self.parameters.items()))
+        baseline = {
+            "mutation_probability": default,
+            "eta_m": base.eta_m,
+            "crossover_probability": base.crossover_probability,
+            "eta_c": base.eta_c,
+            "tournament_size": base.tournament_size,
+        }[key]
+        return {
+            "category": self.category,
+            "parameter": key,
+            "absolute_value": float(value),
+            "signed_change": float(value - baseline),
+            "relative_magnitude": float((value - baseline) / max(abs(baseline), 1e-12)),
+            "applicability": self.applicability,
+        }
+
 def intervention_registry() -> list[Intervention]:
     rows: list[Intervention] = []
     for i, value in enumerate((0.05, 0.10, 0.20, 0.30, 0.50), 1):

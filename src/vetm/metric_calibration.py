@@ -59,7 +59,7 @@ def metric_health(
     zero_ratio = float(np.mean(np.isclose(normalized, 0.0))) if len(normalized) else 1.0
     finite = bool(np.isfinite(values).all() and np.isfinite(raw).all() and np.isfinite(normalized).all())
     valid = bool(calibration_valid and finite and len(ranges) > 0 and np.all(ranges > 1e-12))
-    invalid = bool((not valid) or zero_ratio > 0.95)
+    invalid = bool((not valid) or zero_ratio > 0.10)
     return {
         "zero_HV_ratio": zero_ratio,
         "objective_range": ranges.tolist(),

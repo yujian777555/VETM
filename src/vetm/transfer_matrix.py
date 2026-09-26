@@ -43,6 +43,11 @@ def hypervolume(points: np.ndarray, reference: Iterable[float]) -> float:
         total += (right - left) * _area_2d(active, ref[1:])
     return float(total)
 
+def unit_hypervolume(points: np.ndarray, reference: Iterable[float]) -> float:
+    """将 normalized HV 除以参考盒体积，得到跨目标数可比的单位 HV。"""
+    ref = np.asarray(list(reference), dtype=float)
+    return float(hypervolume(points, ref) / np.prod(ref))
+
 def igd(points: np.ndarray, reference_front: np.ndarray) -> float:
     p = np.asarray(points, dtype=float); r = np.asarray(reference_front, dtype=float)
     if not len(p): return float("inf")

@@ -26,32 +26,22 @@ def dominates(a: np.ndarray, b: np.ndarray) -> bool:
 
 
 def fast_non_dominated_sort(values: np.ndarray) -> list[np.ndarray]:
-    n = len(values)
-    domination_count = np.zeros(n, dtype=int)
-    dominated: list[list[int]] = [[] for _ in range(n)]
-    fronts: list[list[int]] = [[]]
-    for p in range(n):
-        for q in range(n):
-            if p == q:
-                continue
-            if dominates(values[p], values[q]):
-                dominated[p].append(q)
-            elif dominates(values[q], values[p]):
-                domination_count[p] += 1
-        if domination_count[p] == 0:
-            fronts[0].append(p)
-    i = 0
-    while i < len(fronts) and fronts[i]:
-        next_front: list[int] = []
-        for p in fronts[i]:
-            for q in dominated[p]:
-                domination_count[q] -= 1
-                if domination_count[q] == 0:
-                    next_front.append(q)
-        if next_front:
-            fronts.append(next_front)
-        i += 1
-    return [np.asarray(front, dtype=int) for front in fronts if front]
+    values = np.asarray(values, dtype=float)
+    dominates_matrix = (
+        np.all(values[:, None, :] <= values[None, :, :], axis=2)
+        & np.any(values[:, None, :] < values[None, :, :], axis=2)
+    )
+    domination_count = dominates_matrix.sum(axis=0).astype(int)
+    remaining = np.ones(len(values), dtype=bool)
+    fronts: list[np.ndarray] = []
+    while remaining.any():
+        front = np.flatnonzero(remaining & (domination_count == 0))
+        if not len(front):
+            raise ValueError("非有限目标导致非支配排序失败")
+        fronts.append(front)
+        remaining[front] = False
+        domination_count -= dominates_matrix[front].sum(axis=0).astype(int)
+    return fronts
 
 
 def crowding_distance(values: np.ndarray, front: np.ndarray) -> np.ndarray:

@@ -1,0 +1,21 @@
+{
+  "threshold": 0.1,
+  "source": "phase1_5B metric health recomputed with Planner threshold",
+  "invalid_tasks": [
+    "DTLZ1_n7_m3",
+    "ZDT4_n10_m2",
+    "ZDT6_n20_m2"
+  ],
+  "healthy_tasks": [
+    "DTLZ2_n7_m3",
+    "ZDT1_n10_m2",
+    "ZDT1_n20_m2",
+    "ZDT2_n10_m2",
+    "ZDT3_n20_m2"
+  ],
+  "healthy_task_count": 5,
+  "invalid_task_count": 3,
+  "unit_hv_reference": 1.1,
+  "unit_hv_definition": "HV_normalized / product(reference)",
+  "new_budget_sweep_executed": false
+}

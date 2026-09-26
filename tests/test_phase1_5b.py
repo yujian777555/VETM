@@ -8,7 +8,7 @@ from vetm.problems import get_problem, reference_front
 from vetm.metric_calibration import calibrate_task, metric_health, normalize_objectives
 from vetm.interventions import intervention_registry, active_interventions
 from vetm.nsga2 import NSGA2Config
-from vetm.transfer_matrix import hypervolume
+from vetm.transfer_matrix import hypervolume, unit_hypervolume
 
 
 def test_task_calibration_has_ideal_nadir_and_unified_reference():
@@ -43,6 +43,20 @@ def test_metric_health_flags_zero_hv_and_nonfinite_ranges():
     assert health["zero_HV_ratio"] == 1.0
     assert health["normalization_valid"] is False
     assert health["invalid"] is True
+
+
+def test_metric_health_threshold_is_ten_percent():
+    values = np.tile(np.array([[0.0, 1.0], [1.0, 0.0]]), (5, 1))
+    valid = metric_health(values, [1.0] * 9 + [0.0], [1.0] * 9 + [0.0], True)
+    invalid = metric_health(values, [1.0] * 8 + [0.0] * 2, [1.0] * 8 + [0.0] * 2, True)
+    assert valid["invalid"] is False
+    assert invalid["invalid"] is True
+
+
+def test_unit_hv_normalizes_reference_box_volume():
+    points = np.array([[0.0, 0.0]])
+    reference = [1.1, 1.1]
+    assert unit_hypervolume(points, reference) == pytest.approx(1.0)
 
 
 def test_active_interventions_remove_task_specific_noops():

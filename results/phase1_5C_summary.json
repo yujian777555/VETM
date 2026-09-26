@@ -1,0 +1,19 @@
+{
+  "pilot": true,
+  "new_runs": false,
+  "source_matrix": "phase1_5B 10 paired seeds",
+  "healthy_task_count": 5,
+  "invalid_task_count": 3,
+  "matrix_rows": 960,
+  "condition_count": 96,
+  "positive_groups": 12,
+  "negative_groups": 13,
+  "neutral_groups": 71,
+  "heldout_conditions": 20,
+  "heldout_global_mean_mae": 0.033888780040435204,
+  "heldout_zero_gain_mae": 0.010270081315980157,
+  "estimated_full_baseline_runs": 460,
+  "estimated_full_matrix_runs": 7200,
+  "go_no_go": "NO-GO",
+  "go_no_go_reason": "\u672c\u6b21\u53ea\u5b8c\u6210\u5065\u5eb7\u8fc7\u6ee4 pilot\uff1b\u5b8c\u6574 budget sweep \u4e0e 20-30 task matrix \u56e0\u8ba1\u7b97\u6210\u672c\u505c\u6b62\u3002"
+}
