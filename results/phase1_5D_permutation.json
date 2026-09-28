@@ -1,0 +1,6 @@
+{
+  "n_permutations": 200,
+  "real_mae_delta": 0.015613179454176443,
+  "shuffled_mae_mean": 0.1208423403283823,
+  "shuffled_mae_q95": 0.15848595918181804
+}

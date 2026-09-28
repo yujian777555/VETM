@@ -1,0 +1,11 @@
+{
+  "condition_count": 390,
+  "task_count": 20,
+  "probe_seed_count": 5,
+  "primary_model": "static_dynamic_intervention_ridge",
+  "macro_task_mae_delta_model_minus_zero": 0.015613179454176443,
+  "bootstrap_ci95": [-0.004375298054685791, 0.044236044147843635],
+  "context_shuffled_mae_mean": 0.1208423403283823,
+  "primary_gate": "NO-GO",
+  "phase2": "NO-GO"
+}

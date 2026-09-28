@@ -150,10 +150,12 @@ class NSGA2:
         population = self.rng.uniform(lower, upper, size=(cfg.population_size, self.problem.n_var))
         objectives = self.problem.evaluate(population)
         history: list[dict[str, float | int]] = []
+        trajectory_fronts: list[np.ndarray] = []
         function_evaluations = cfg.population_size
         for generation in range(cfg.generations + 1):
             ranks, crowd = _rank_and_crowding(objectives)
             first = objectives[ranks == 0]
+            trajectory_fronts.append(first.copy())
             summary: dict[str, float | int] = {
                 "generation": generation,
                 "population_size": cfg.population_size,
@@ -202,6 +204,7 @@ class NSGA2:
             "objectives": objectives,
             "front": objectives[ranks == 0],
             "history": history,
+            "trajectory_fronts": trajectory_fronts,
             "seed": self.seed,
             "algorithm": "NSGA-II",
             "function_evaluations": function_evaluations,
