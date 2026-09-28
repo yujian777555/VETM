@@ -1,0 +1,60 @@
+{
+  "source": "results\\r1_stage\\phase1_5C_metric_health.json",
+  "threshold": 0.1,
+  "actual_calibration_runs": 230,
+  "healthy_tasks": [
+    "ZDT1_n10_m2",
+    "ZDT1_n20_m2",
+    "ZDT1_n30_m2",
+    "ZDT2_n10_m2",
+    "ZDT2_n20_m2",
+    "ZDT2_n30_m2",
+    "ZDT3_n10_m2",
+    "ZDT3_n20_m2",
+    "ZDT3_n30_m2",
+    "ZDT4_n10_m2",
+    "ZDT6_n10_m2",
+    "ZDT6_n20_m2",
+    "ZDT6_n30_m2",
+    "DTLZ1_n6_m2",
+    "DTLZ1_n7_m3",
+    "DTLZ2_n6_m2",
+    "DTLZ2_n9_m2",
+    "DTLZ2_n7_m3",
+    "DTLZ2_n10_m3"
+  ],
+  "unsupported_tasks": [
+    "ZDT4_n20_m2",
+    "ZDT4_n30_m2",
+    "DTLZ1_n9_m2",
+    "DTLZ1_n10_m3"
+  ],
+  "selected_budgets": {
+    "ZDT1_n10_m2": 2000,
+    "ZDT1_n20_m2": 2000,
+    "ZDT1_n30_m2": 2000,
+    "ZDT2_n10_m2": 2000,
+    "ZDT2_n20_m2": 2000,
+    "ZDT2_n30_m2": 2000,
+    "ZDT3_n10_m2": 2000,
+    "ZDT3_n20_m2": 2000,
+    "ZDT3_n30_m2": 2000,
+    "ZDT4_n10_m2": 10000,
+    "ZDT6_n10_m2": 5000,
+    "ZDT6_n20_m2": 5000,
+    "ZDT6_n30_m2": 10000,
+    "DTLZ1_n6_m2": 10000,
+    "DTLZ1_n7_m3": 20000,
+    "DTLZ2_n6_m2": 2000,
+    "DTLZ2_n9_m2": 2000,
+    "DTLZ2_n7_m3": 2000,
+    "DTLZ2_n10_m3": 2000
+  },
+  "candidate_evaluations": [
+    2000,
+    5000,
+    10000,
+    20000
+  ],
+  "saturation_rule": "unit_HV_mean >= 0.98"
+}

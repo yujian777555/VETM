@@ -1,0 +1,24 @@
+{
+  "problem": "ZDT1_n20_m2",
+  "rows": [
+    {
+      "budget": 2000,
+      "seconds": 0.14916220000000002,
+      "evaluations": 2000,
+      "evaluations_per_second": 13408.222726669355
+    },
+    {
+      "budget": 5000,
+      "seconds": 0.3737703,
+      "evaluations": 5000,
+      "evaluations_per_second": 13377.199847071852
+    },
+    {
+      "budget": 10000,
+      "seconds": 0.7242634,
+      "evaluations": 10000,
+      "evaluations_per_second": 13807.131493873638
+    }
+  ],
+  "estimated_7200_runs_seconds": 2993.27016
+}

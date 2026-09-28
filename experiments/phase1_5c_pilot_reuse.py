@@ -13,6 +13,10 @@ from vetm.transfer_matrix import classify_effect
 
 def run() -> dict:
     results = ROOT / "results"
+    task_registry = {
+        row["task_id"]: row
+        for row in json.loads((ROOT / "configs" / "phase1_5c_tasks.json").read_text(encoding="utf-8"))["tasks"]
+    }
     old_health = json.loads((results / "metric_health_report.json").read_text(encoding="utf-8"))
     invalid = {row["task_id"] for row in old_health["tasks"] if row["zero_HV_ratio"] > 0.10}
     old_rows = list(csv.DictReader((results / "phase1_5B_transfer_matrix.csv").open(encoding="utf-8")))
@@ -20,14 +24,16 @@ def run() -> dict:
     for row in old_rows:
         if row["task_id"] in invalid:
             continue
-        n_obj = int(row.get("n_obj", "2"))
+        n_obj = int(task_registry[row["task_id"]]["n_obj"])
         scale = 1.1 ** n_obj
+        row["n_obj"] = n_obj
+        row["previous_HV_unit_with_m2_assumption"] = float(row["baseline_normalized_HV"]) / (1.1 ** 2)
         row["baseline_HV_unit"] = float(row["baseline_normalized_HV"]) / scale
         row["intervention_HV_unit"] = float(row["intervention_normalized_HV"]) / scale
         row["delta_HV_unit"] = float(row["delta_normalized_HV"]) / scale
         row["source_matrix"] = "phase1_5B_10seed"
         kept.append(row)
-    with (results / "phase1_5C_transfer_matrix.csv").open("w", newline="", encoding="utf-8") as handle:
+    with (results / "phase1_5C_R1_transfer_matrix.csv").open("w", newline="", encoding="utf-8") as handle:
         fields = sorted({key for row in kept for key in row})
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
@@ -47,7 +53,7 @@ def run() -> dict:
                            for row in kept if row["task_id"] == task_id and row["intervention_id"] == intervention_id
                        ]))})
         summaries.append(effect)
-    with (results / "phase1_5C_condition_summary.csv").open("w", newline="", encoding="utf-8") as handle:
+    with (results / "phase1_5C_R1_condition_summary.csv").open("w", newline="", encoding="utf-8") as handle:
         fields = sorted({key for row in summaries for key in row})
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
@@ -58,7 +64,7 @@ def run() -> dict:
               "healthy_task_count": len({row["task_id"] for row in kept}), "invalid_task_count": len(invalid),
               "unit_hv_reference": 1.1, "unit_hv_definition": "HV_normalized / product(reference)",
               "new_budget_sweep_executed": False}
-    (results / "phase1_5C_metric_health.json").write_text(json.dumps(health, indent=2), encoding="utf-8")
+    (results / "phase1_5C_R1_metric_health.json").write_text(json.dumps(health, indent=2), encoding="utf-8")
 
     calibration_rows = []
     for task_id in sorted({row["task_id"] for row in old_rows}):
@@ -66,7 +72,7 @@ def run() -> dict:
             calibration_rows.append({"task_id": task_id, "candidate_budget": budget,
                                      "status": "not_run_compute_budget_stop",
                                      "source": "phase1_5B_10seed_matrix_only_at_2000"})
-    with (results / "phase1_5C_budget_calibration.csv").open("w", newline="", encoding="utf-8") as handle:
+    with (results / "phase1_5C_R1_budget_calibration.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=["task_id", "candidate_budget", "status", "source"])
         writer.writeheader()
         writer.writerows(calibration_rows)
@@ -96,7 +102,8 @@ def run() -> dict:
                "estimated_full_matrix_runs": 20 * 10 * 18 * 2,
                "go_no_go": "NO-GO",
                "go_no_go_reason": "本次只完成健康过滤 pilot；完整 budget sweep 与 20-30 task matrix 因计算成本停止。"}
-    (results / "phase1_5C_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    summary["corrected_3d_scaling"] = {"dtlz2_n7_m3_divisor": 1.1 ** 3, "previous_divisor": 1.1 ** 2}
+    (results / "phase1_5C_R1_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     return summary
 
 if __name__ == "__main__":

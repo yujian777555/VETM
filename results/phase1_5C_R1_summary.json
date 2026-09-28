@@ -1,0 +1,47 @@
+{
+  "healthy_task_count": 20,
+  "condition_count": 390,
+  "paired_run_rows": 3900,
+  "positive_groups": 41,
+  "negative_groups": 65,
+  "neutral_groups": 284,
+  "reversals": {
+    "within_family": [
+      "crossover_eta_01",
+      "mutation_eta_01",
+      "mutation_eta_02",
+      "mutation_prob_01",
+      "mutation_prob_02",
+      "mutation_prob_03",
+      "mutation_prob_04"
+    ],
+    "cross_family": [
+      "crossover_eta_01",
+      "mutation_eta_01",
+      "mutation_eta_02",
+      "mutation_prob_01",
+      "mutation_prob_03",
+      "mutation_prob_04"
+    ],
+    "dimension_or_objective_count": [
+      "crossover_eta_01",
+      "mutation_eta_01",
+      "mutation_eta_02",
+      "mutation_prob_01",
+      "mutation_prob_03",
+      "mutation_prob_04"
+    ],
+    "hv_igd_agree": [
+      "crossover_eta_01",
+      "mutation_eta_01",
+      "mutation_eta_02",
+      "mutation_prob_01",
+      "mutation_prob_02",
+      "mutation_prob_03",
+      "mutation_prob_04"
+    ]
+  },
+  "stage_b_gate_observed": true,
+  "stage_b": "completed",
+  "phase_2": "NO-GO pending 20-seed candidate confirmation"
+}

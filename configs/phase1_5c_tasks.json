@@ -4,6 +4,11 @@
   "population_size": 50,
   "candidate_budgets": [2000, 5000, 10000, 20000],
   "practical_tolerance": 0.01,
+  "stage_a_task_ids": [
+    "ZDT1_n10_m2", "ZDT1_n20_m2", "ZDT2_n10_m2", "ZDT2_n20_m2",
+    "ZDT3_n10_m2", "ZDT3_n20_m2", "ZDT4_n10_m2", "ZDT6_n10_m2",
+    "DTLZ1_n6_m2", "DTLZ1_n7_m3", "DTLZ2_n6_m2", "DTLZ2_n7_m3"
+  ],
   "tasks": [
     {"task_id":"ZDT1_n10_m2","problem":"ZDT1","n_var":10,"n_obj":2},
     {"task_id":"ZDT1_n20_m2","problem":"ZDT1","n_var":20,"n_obj":2},
@@ -27,6 +32,7 @@
     {"task_id":"DTLZ2_n6_m2","problem":"DTLZ2","n_var":6,"n_obj":2},
     {"task_id":"DTLZ2_n9_m2","problem":"DTLZ2","n_var":9,"n_obj":2},
     {"task_id":"DTLZ2_n7_m3","problem":"DTLZ2","n_var":7,"n_obj":3},
-    {"task_id":"DTLZ2_n10_m3","problem":"DTLZ2","n_var":10,"n_obj":3}
+    {"task_id":"DTLZ2_n10_m3","problem":"DTLZ2","n_var":10,"n_obj":3},
+    {"task_id":"DTLZ2_n12_m2","problem":"DTLZ2","n_var":12,"n_obj":2}
   ]
 }

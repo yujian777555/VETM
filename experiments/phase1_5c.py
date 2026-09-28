@@ -45,7 +45,13 @@ def calibrate(tasks, config):
                 objectives.append(result["objectives"])
                 igds.append(igd(result["front"], reference))
             health = metric_health(np.vstack(objectives), raw, normalized, calibration.valid)
-            health.update({"budget": budget, "mean_unit_HV": float(np.mean(normalized)), "std_unit_HV": float(np.std(normalized)), "mean_IGD": float(np.mean(igds)), "saturated": bool(np.ptp(normalized) < 1e-12)})
+            health.update({
+                "budget": budget,
+                "mean_unit_HV": float(np.mean(normalized)),
+                "std_unit_HV": float(np.std(normalized)),
+                "mean_IGD": float(np.mean(igds)),
+                "saturated": bool(np.mean(normalized) >= 0.98),
+            })
             candidates.append(health)
             if not health["invalid"] and not health["saturated"]:
                 selected[task["task_id"]] = budget
@@ -60,12 +66,20 @@ def ridge_fit_predict(train_x, train_y, test_x, alpha=1e-2):
     return z @ w
 
 def main():
-    parser = argparse.ArgumentParser(); parser.add_argument("--max-healthy-tasks", type=int, default=20); parser.add_argument("--config", default="configs/phase1_5c_tasks.json"); parser.add_argument("--results", default="results")
+    parser = argparse.ArgumentParser(); parser.add_argument("--max-healthy-tasks", type=int, default=12); parser.add_argument("--config", default="configs/phase1_5c_tasks.json"); parser.add_argument("--results", default="results")
+    parser.add_argument("--calibration-report", default="")
     args = parser.parse_args(); results_dir = ROOT / args.results; results_dir.mkdir(exist_ok=True)
     config = json.loads((ROOT / args.config).read_text(encoding="utf-8")); tasks = config["tasks"]
-    health_reports, selected = calibrate(tasks, config)
+    if args.calibration_report:
+        health_reports = json.loads((ROOT / args.calibration_report).read_text(encoding="utf-8"))
+        selected = {task_id: report["selected_budget"] for task_id, report in health_reports.items() if report["supported"]}
+    else:
+        health_reports, selected = calibrate(tasks, config)
     (results_dir / "phase1_5C_metric_health.json").write_text(json.dumps(health_reports, indent=2), encoding="utf-8")
-    healthy_tasks = [t for t in tasks if t["task_id"] in selected][:args.max_healthy_tasks]
+    stage_ids = config.get("stage_a_task_ids", [])
+    healthy_tasks = [t for t in tasks if t["task_id"] in selected and t["task_id"] in stage_ids][:args.max_healthy_tasks]
+    if len(healthy_tasks) < min(args.max_healthy_tasks, len(stage_ids)):
+        raise ValueError("Stage A 预注册任务中有未通过健康校准的配置；先更新健康任务选择规则并记录原因")
     rows, summaries = [], []
     for task in healthy_tasks:
         budget = selected[task["task_id"]]; generations = budget // config["population_size"] - 1
