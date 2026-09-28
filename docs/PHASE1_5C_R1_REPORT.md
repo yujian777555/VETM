@@ -17,7 +17,7 @@
 - runtime benchmark：2k/5k/10k 约 0.149/0.374/0.724 秒
 - 估算 7200 次运行约 2993 秒
 
-invalid tasks 未进入聚合矩阵和预测分析。候选 reversal 的额外 10 seed confirmation 尚未运行，因此 Phase 2 仍保持阻塞。
+invalid tasks 未进入聚合矩阵和预测分析。候选 reversal 已补跑 seed 10--19：46 个候选条件、460 条新增记录，合并后 20 seeds 确认 42 个非中性条件。
 
 ## Predictability
 
@@ -29,4 +29,4 @@ Stage A 的 global intervention mean MAE 为 0.0983，ridge MAE 为 0.1146，zer
 
 **Stage B：完成矩阵扩展；Phase 2：NO-GO（暂缓）。**
 
-进入 Phase 2 前仍需完成候选 reversal 的额外 10 seed confirmation，并重新运行 held-out predictor 对比。当前不实现 Cross Attention、VETM 或 agent layer。
+20-seed 确认后，within-family reversal 为 7 个干预，cross-family reversal 为 4 个干预，HV/IGD 一致的候选干预为 7 个。Stage B 已完成；Phase 2 仍需重新运行健康任务上的 held-out predictor 并确认预测改进稳定后才能进入。当前不实现 Cross Attention、VETM 或 agent layer。

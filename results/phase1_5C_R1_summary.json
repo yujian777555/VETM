@@ -43,5 +43,32 @@
   },
   "stage_b_gate_observed": true,
   "stage_b": "completed",
-  "phase_2": "NO-GO pending 20-seed candidate confirmation"
+  "phase_2": "NO-GO pending 20-seed candidate confirmation",
+  "candidate_confirmation_seed_count": 20,
+  "candidate_confirmation_rows": 460,
+  "confirmed_groups": 42,
+  "confirmed_within_family_reversals": [
+    "crossover_eta_01",
+    "mutation_eta_01",
+    "mutation_eta_02",
+    "mutation_prob_01",
+    "mutation_prob_02",
+    "mutation_prob_03",
+    "mutation_prob_04"
+  ],
+  "confirmed_cross_family_reversals": [
+    "crossover_eta_01",
+    "mutation_eta_01",
+    "mutation_prob_01",
+    "mutation_prob_04"
+  ],
+  "confirmed_hv_igd_agreement": [
+    "crossover_eta_01",
+    "mutation_eta_01",
+    "mutation_eta_02",
+    "mutation_prob_01",
+    "mutation_prob_02",
+    "mutation_prob_03",
+    "mutation_prob_04"
+  ]
 }
