@@ -1,0 +1,138 @@
+{
+  "tasks": {
+    "ZDT1_n10_m2": {
+      "max_abs_normalized_response": 0.6568458805886543,
+      "median_abs_normalized_response": 0.00373721231053226,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.5193979985835211
+    },
+    "ZDT1_n20_m2": {
+      "max_abs_normalized_response": 0.5469791091000407,
+      "median_abs_normalized_response": 0.004561884458896463,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.25089712544604836
+    },
+    "ZDT2_n10_m2": {
+      "max_abs_normalized_response": 0.9142678262493344,
+      "median_abs_normalized_response": 0.0009189732239905865,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.3636133449875416
+    },
+    "ZDT2_n20_m2": {
+      "max_abs_normalized_response": 1.6231639431784237,
+      "median_abs_normalized_response": 0.004608453351270447,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.6099725247796113
+    },
+    "ZDT3_n10_m2": {
+      "max_abs_normalized_response": 0.8392729058549664,
+      "median_abs_normalized_response": 0.006587109735526651,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.6630256922156359
+    },
+    "ZDT3_n20_m2": {
+      "max_abs_normalized_response": 0.7554961007203258,
+      "median_abs_normalized_response": 0.003516542412512523,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.29302699772949947
+    },
+    "ZDT4_n10_m2": {
+      "max_abs_normalized_response": 1.1351241565934327,
+      "median_abs_normalized_response": 0.014142135623730963,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 4.369531147897497
+    },
+    "ZDT6_n10_m2": {
+      "max_abs_normalized_response": 5.049937021598675,
+      "median_abs_normalized_response": 0.014142135623730954,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.48818396289673194
+    },
+    "DTLZ1_n6_m2": {
+      "max_abs_normalized_response": 0.49143709415407955,
+      "median_abs_normalized_response": 0.026769042430633577,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 20.057676391715972
+    },
+    "DTLZ1_n7_m3": {
+      "max_abs_normalized_response": 0.36903234770637033,
+      "median_abs_normalized_response": 0.019999999999999962,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 17.399246971820002
+    },
+    "DTLZ2_n6_m2": {
+      "max_abs_normalized_response": 0.4923669548192236,
+      "median_abs_normalized_response": 0.0075771880973159065,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.08989557010570592
+    },
+    "DTLZ2_n7_m3": {
+      "max_abs_normalized_response": 0.21322274311200354,
+      "median_abs_normalized_response": 0.009999999999999953,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.06571520832675504
+    },
+    "ZDT1_n30_m2": {
+      "max_abs_normalized_response": 0.7028702881672568,
+      "median_abs_normalized_response": 0.008051719141616787,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.14667751626721004
+    },
+    "ZDT2_n30_m2": {
+      "max_abs_normalized_response": 1.7153936377739587,
+      "median_abs_normalized_response": 0.01999999999999998,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.280745332057283
+    },
+    "ZDT3_n30_m2": {
+      "max_abs_normalized_response": 0.8657594134747699,
+      "median_abs_normalized_response": 0.0210814365533727,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.26529368895111793
+    },
+    "ZDT6_n20_m2": {
+      "max_abs_normalized_response": 3.8563148329935126,
+      "median_abs_normalized_response": 0.01484884558964326,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.32966075086121904
+    },
+    "ZDT6_n30_m2": {
+      "max_abs_normalized_response": 7.173310618023495,
+      "median_abs_normalized_response": 0.025749377855773692,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.3375907288991442
+    },
+    "DTLZ2_n9_m2": {
+      "max_abs_normalized_response": 0.5020958379172842,
+      "median_abs_normalized_response": 0.01450142465243302,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.08447999805558615
+    },
+    "DTLZ2_n10_m3": {
+      "max_abs_normalized_response": 0.3043772616505675,
+      "median_abs_normalized_response": 0.0033241407945734215,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.051607987715635906
+    },
+    "DTLZ2_n12_m2": {
+      "max_abs_normalized_response": 0.5562287430688349,
+      "median_abs_normalized_response": 0.014142135623730952,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 0.14340608304957636
+    }
+  },
+  "dtlz1": {
+    "DTLZ1_n6_m2": {
+      "max_abs_normalized_response": 0.49143709415407955,
+      "median_abs_normalized_response": 0.026769042430633577,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 20.057676391715972
+    },
+    "DTLZ1_n7_m3": {
+      "max_abs_normalized_response": 0.36903234770637033,
+      "median_abs_normalized_response": 0.019999999999999962,
+      "nonfinite_count": 0,
+      "old_raw_mean_spread_max_abs": 17.399246971820002
+    }
+  }
+}

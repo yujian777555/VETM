@@ -1,8 +1,151 @@
 {
-  "status": "diagnostic_recomputed",
+  "status": "diagnostic_only",
+  "source_phase": "Phase 1.5D",
   "task_configuration_blocks": 20,
-  "previous_phase1_5D_problem_block_count": 7,
-  "warning": "Phase 1.5D stored split-level aggregates rather than per-task predictions; exact task-block bootstrap cannot be reconstructed from those aggregates alone.",
-  "action": "Phase 1.5E uses fresh condition-level leave-one-problem-out predictions with task configuration blocks.",
-  "primary_gate": "NO-GO"
+  "per_task": {
+    "DTLZ1_n6_m2": {
+      "static_dynamic_mae": 0.13243022454966286,
+      "zero_mae": 0.19065245943696602,
+      "intervention_only_mae": 0.1840368131395636,
+      "global_mae": 0.1810311128390571
+    },
+    "DTLZ1_n7_m3": {
+      "static_dynamic_mae": 0.19520297013976862,
+      "zero_mae": 0.1669238148644424,
+      "intervention_only_mae": 0.15907684147517087,
+      "global_mae": 0.15009314210430377
+    },
+    "DTLZ2_n10_m3": {
+      "static_dynamic_mae": 0.1932166255758536,
+      "zero_mae": 0.017727588428745434,
+      "intervention_only_mae": 0.039381139978393855,
+      "global_mae": 0.043221507736109055
+    },
+    "DTLZ2_n12_m2": {
+      "static_dynamic_mae": 0.03759742329083621,
+      "zero_mae": 0.004083895543488621,
+      "intervention_only_mae": 0.0413796374473613,
+      "global_mae": 0.04448223884034939
+    },
+    "DTLZ2_n6_m2": {
+      "static_dynamic_mae": 0.058838547203763594,
+      "zero_mae": 0.0004969101726976579,
+      "intervention_only_mae": 0.042957085457565304,
+      "global_mae": 0.04575689717331816
+    },
+    "DTLZ2_n7_m3": {
+      "static_dynamic_mae": 0.18939929970073022,
+      "zero_mae": 0.010108579981493272,
+      "intervention_only_mae": 0.04100140984287286,
+      "global_mae": 0.04337759286179384
+    },
+    "DTLZ2_n9_m2": {
+      "static_dynamic_mae": 0.039135182283449484,
+      "zero_mae": 0.0015516105340487615,
+      "intervention_only_mae": 0.0423756708527306,
+      "global_mae": 0.045315921979986344
+    },
+    "ZDT1_n10_m2": {
+      "static_dynamic_mae": 0.02192156780695926,
+      "zero_mae": 0.015944590454464485,
+      "intervention_only_mae": 0.027560745388519964,
+      "global_mae": 0.034119534915596265
+    },
+    "ZDT1_n20_m2": {
+      "static_dynamic_mae": 0.05489710193392907,
+      "zero_mae": 0.03210355919601302,
+      "intervention_only_mae": 0.04126981919480244,
+      "global_mae": 0.03625277301772062
+    },
+    "ZDT1_n30_m2": {
+      "static_dynamic_mae": 0.04745904427333732,
+      "zero_mae": 0.03193854439951012,
+      "intervention_only_mae": 0.04160878592482745,
+      "global_mae": 0.0419138369867741
+    },
+    "ZDT2_n10_m2": {
+      "static_dynamic_mae": 0.06301649934128795,
+      "zero_mae": 0.06113667409720728,
+      "intervention_only_mae": 0.07159402457271034,
+      "global_mae": 0.07309402828425665
+    },
+    "ZDT2_n20_m2": {
+      "static_dynamic_mae": 0.0650073085238599,
+      "zero_mae": 0.05999056077243709,
+      "intervention_only_mae": 0.06634112453091831,
+      "global_mae": 0.06227121889205937
+    },
+    "ZDT2_n30_m2": {
+      "static_dynamic_mae": 0.06910761297675322,
+      "zero_mae": 0.05044060408382487,
+      "intervention_only_mae": 0.05189606314432721,
+      "global_mae": 0.05211430438687781
+    },
+    "ZDT3_n10_m2": {
+      "static_dynamic_mae": 0.025400659307542935,
+      "zero_mae": 0.014959815520984871,
+      "intervention_only_mae": 0.026506778247032875,
+      "global_mae": 0.03278143186803997
+    },
+    "ZDT3_n20_m2": {
+      "static_dynamic_mae": 0.032304750393767324,
+      "zero_mae": 0.019927080441099924,
+      "intervention_only_mae": 0.02908055890046878,
+      "global_mae": 0.030800503875902694
+    },
+    "ZDT3_n30_m2": {
+      "static_dynamic_mae": 0.04490806427278919,
+      "zero_mae": 0.026197463599526023,
+      "intervention_only_mae": 0.04184369711127555,
+      "global_mae": 0.04112447732943848
+    },
+    "ZDT4_n10_m2": {
+      "static_dynamic_mae": 0.16676904524635883,
+      "zero_mae": 0.17658574542028643,
+      "intervention_only_mae": 0.17052391126414965,
+      "global_mae": 0.1607914018748274
+    },
+    "ZDT6_n10_m2": {
+      "static_dynamic_mae": 0.05903791679228807,
+      "zero_mae": 0.04736234859265585,
+      "intervention_only_mae": 0.04891006716998464,
+      "global_mae": 0.04893486026725311
+    },
+    "ZDT6_n20_m2": {
+      "static_dynamic_mae": 0.038520733225249994,
+      "zero_mae": 0.04144382954593199,
+      "intervention_only_mae": 0.04098272501540736,
+      "global_mae": 0.041614482396967085
+    },
+    "ZDT6_n30_m2": {
+      "static_dynamic_mae": 0.07608480220830693,
+      "zero_mae": 0.0825686213853153,
+      "intervention_only_mae": 0.07697057632189046,
+      "global_mae": 0.07867849952483227
+    }
+  },
+  "comparisons": {
+    "zero": {
+      "mean": 0.027905554128767756,
+      "ci95_low": 0.006117814569125106,
+      "ci95_high": 0.05371521523647375,
+      "n_task_blocks": 20,
+      "resamples": 5000
+    },
+    "intervention_only": {
+      "mean": 0.016247895203326052,
+      "ci95_low": -0.0026293985883722015,
+      "ci95_high": 0.038866611600618474,
+      "n_task_blocks": 20,
+      "resamples": 5000
+    },
+    "global": {
+      "mean": 0.016124280594551548,
+      "ci95_low": -0.0029525554065159662,
+      "ci95_high": 0.03868248751938853,
+      "n_task_blocks": 20,
+      "resamples": 5000
+    }
+  },
+  "warning": "只修正统计单位；原 Phase 1.5D 特征与模型选择保持不变，包含当时的 oracle 特征，不可用于 Phase 1.5E 输入。"
 }

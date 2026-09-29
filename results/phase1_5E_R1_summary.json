@@ -1,0 +1,34 @@
+{
+  "primary_gate": false,
+  "phase2": "NO-GO",
+  "macro_task_mae": {
+    "intervention_only": 0.06426487374899867,
+    "passive_intervention": 0.0830388405545016,
+    "causal_intervention": 0.09197147585047717,
+    "passive_causal_intervention": 0.08068341847414998,
+    "zero_gain": 0.05260721482355698,
+    "global_intervention_mean": 0.06438848835777317
+  },
+  "task_block_bootstrap": {
+    "zero_gain": {
+      "mean": 0.0393642610269202,
+      "ci95_low": 0.014699391690795512,
+      "ci95_high": 0.07543136615869095,
+      "n_tasks": 20
+    },
+    "intervention_only": {
+      "mean": 0.0277066021014785,
+      "ci95_low": 0.0021304265572273124,
+      "ci95_high": 0.06600680679341608,
+      "n_tasks": 20
+    },
+    "global_intervention_mean": {
+      "mean": 0.027582987492703992,
+      "ci95_low": 0.0018205860602499983,
+      "ci95_high": 0.06550490053516626,
+      "n_tasks": 20
+    }
+  },
+  "macro_task_spearman": 0.2763266877816598,
+  "permutation_p": 0.375
+}

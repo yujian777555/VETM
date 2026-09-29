@@ -1,0 +1,7 @@
+{
+  "source": "results/phase1_5D_R1_taskblock_audit.json",
+  "task_configuration_blocks": 20,
+  "bootstrap_resamples": 5000,
+  "status": "fresh_phase1_5E_leave_one_problem_out_task_blocks",
+  "primary_gate": "NO-GO"
+}

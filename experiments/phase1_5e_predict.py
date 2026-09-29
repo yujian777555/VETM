@@ -7,6 +7,7 @@ import numpy as np
 import sys
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT/"src"))
 from vetm.interventions import intervention_registry
+from vetm.metrics import evaluate_predictions
 from vetm.validators import NearestNeighborValidator, MLPValidityPredictor
 
 def rankdata(x):
@@ -19,17 +20,25 @@ def rankdata(x):
 def spearman(a,b):
     if len(a)<2 or np.std(a)==0 or np.std(b)==0:return None
     return float(np.corrcoef(rankdata(a),rankdata(b))[0,1])
+def standardize(x,z):
+    mu,sc=x.mean(0),x.std(0); sc[sc<1e-12]=1
+    return (x-mu)/sc,(z-mu)/sc
 def ridge(x,y,z):
     mu,sc=x.mean(0),x.std(0);sc[sc<1e-12]=1
     xn=(x-mu)/sc;zn=(z-mu)/sc;c=y.mean()
     return c+zn@np.linalg.solve(xn.T@xn+np.eye(x.shape[1]),xn.T@(y-c))
+def logistic(x,y,z,epochs=500):
+    xn,zn=standardize(x,z); xn=np.c_[np.ones(len(xn)),xn]; zn=np.c_[np.ones(len(zn)),zn]; w=np.zeros(xn.shape[1])
+    for _ in range(epochs):
+        p=1/(1+np.exp(-np.clip(xn@w,-30,30))); g=xn.T@(p-y)/len(xn); g[1:]+=.01*w[1:]; w-=.08*g
+    return 1/(1+np.exp(-np.clip(zn@w,-30,30)))
 def task_bootstrap(diffs,n=5000):
     x=np.asarray(diffs,float);rng=np.random.default_rng(42);draw=x[rng.integers(0,len(x),size=(n,len(x)))].mean(1)
     return {"mean":float(x.mean()),"ci95_low":float(np.quantile(draw,.025)),"ci95_high":float(np.quantile(draw,.975)),"n_tasks":len(x)}
 def main():
     results=ROOT/"results"
     rows=list(csv.DictReader((results/"phase1_5C_R1_condition_summary.csv").open(encoding="utf-8")))
-    context={r["task_id"]:r for r in csv.DictReader((results/"phase1_5E_causal_fingerprint.csv").open(encoding="utf-8"))}
+    context={r["task_id"]:r for r in csv.DictReader((results/"phase1_5E_R1_causal_fingerprint.csv").open(encoding="utf-8"))}
     static={r["task_id"]:r for r in csv.DictReader((results/"phase1_5E_oracle_free_static.csv").open(encoding="utf-8"))}
     registry={i.intervention_id:i for i in intervention_registry()}
     ckeys=[k for k in context[next(iter(context))] if k not in {"task_id","problem","n_var","n_obj","budget","probe_seeds"}]
@@ -58,6 +67,21 @@ def main():
             pred=ridge(x[train],y[train],x[test])
             predictions[name][test]=pred
             split_results[problem][name]={"mae":float(np.mean(abs(pred-y[test]))),"spearman":spearman(y[test],pred)}
+    negative_results={}
+    negative_label=(y < -0.01).astype(int)
+    for problem in problems:
+        train=np.asarray([i for i,r in enumerate(rows) if r["problem"]!=problem]); test=np.asarray([i for i,r in enumerate(rows) if r["problem"]==problem])
+        x=groups["causal_intervention"]
+        nn=NearestNeighborValidator(k=5).fit(x[train],negative_label[train]).predict_proba(x[test])
+        logit=logistic(x[train],negative_label[train],x[test])
+        mlps=[MLPValidityPredictor(hidden_dim=16,epochs=300,learning_rate=.01,seed=seed).fit(x[train],negative_label[train]).predict_proba(x[test]) for seed in range(5)]
+        negative_results[problem]={
+            "prevalence":float(negative_label[test].mean()),
+            "nearest_neighbor":evaluate_predictions(negative_label[test],nn),
+            "logistic":evaluate_predictions(negative_label[test],logit),
+            "mlp_mean":{key:float(np.mean([evaluate_predictions(negative_label[test],p)[key] for p in mlps])) for key in ("accuracy","precision","recall","f1","brier")},
+            "mlp_seeds":5,
+        }
     # Context shuffled by complete task vector among training tasks for 1000 permutations.
     rng=np.random.default_rng(7); shuffled=[]; causal_all=groups["causal_intervention"]
     for _ in range(1000):
@@ -107,9 +131,10 @@ def main():
              "shuffled_context_mae_q95":float(np.quantile(shuffled,.95)),
              "permutation_p_value":perm_p,"primary_gate":primary_gate,
              "causal_feature_columns":ckeys,"static_feature_columns":skeys}
-    (results/"phase1_5E_predictability.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
-    (results/"phase1_5E_bootstrap.json").write_text(json.dumps(bootstrap,indent=2),encoding="utf-8")
-    (results/"phase1_5E_permutation.json").write_text(json.dumps({"n_permutations":1000,"p_value":perm_p,"real_mae":real_mae,"shuffled_mean":float(np.mean(shuffled))},indent=2),encoding="utf-8")
-    (results/"phase1_5E_summary.json").write_text(json.dumps({"primary_gate":primary_gate,"phase2":"GO" if primary_gate else "NO-GO","macro_task_mae":macro_mae,"task_block_bootstrap":bootstrap,"macro_task_spearman":macro_spearman,"permutation_p":perm_p},indent=2),encoding="utf-8")
+    summary["negative_transfer_detection"]=negative_results
+    (results/"phase1_5E_R1_predictability.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
+    (results/"phase1_5E_R1_bootstrap.json").write_text(json.dumps(bootstrap,indent=2),encoding="utf-8")
+    (results/"phase1_5E_R1_permutation.json").write_text(json.dumps({"n_permutations":1000,"p_value":perm_p,"real_mae":real_mae,"shuffled_mean":float(np.mean(shuffled))},indent=2),encoding="utf-8")
+    (results/"phase1_5E_R1_summary.json").write_text(json.dumps({"primary_gate":primary_gate,"phase2":"GO" if primary_gate else "NO-GO","macro_task_mae":macro_mae,"task_block_bootstrap":bootstrap,"macro_task_spearman":macro_spearman,"permutation_p":perm_p},indent=2),encoding="utf-8")
     print(json.dumps({"primary_gate":primary_gate,"macro_task_mae":macro_mae,"bootstrap":bootstrap,"spearman":macro_spearman,"p":perm_p},indent=2))
 if __name__=="__main__": main()
