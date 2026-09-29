@@ -1,0 +1,270 @@
+{
+  "tasks": [
+    {
+      "task_id": "ZDT1_n10_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.4
+    },
+    {
+      "task_id": "ZDT1_n20_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 7,
+      "excluded_anchor_ids": [
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 700,
+      "total_probe_evaluations": 900,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.45
+    },
+    {
+      "task_id": "ZDT2_n10_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.4
+    },
+    {
+      "task_id": "ZDT2_n20_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 7,
+      "excluded_anchor_ids": [
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 700,
+      "total_probe_evaluations": 900,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.45
+    },
+    {
+      "task_id": "ZDT3_n10_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.4
+    },
+    {
+      "task_id": "ZDT3_n20_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 7,
+      "excluded_anchor_ids": [
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 700,
+      "total_probe_evaluations": 900,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.45
+    },
+    {
+      "task_id": "ZDT4_n10_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 10000,
+      "probe_fraction": 0.08
+    },
+    {
+      "task_id": "ZDT6_n10_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 5000,
+      "probe_fraction": 0.16
+    },
+    {
+      "task_id": "DTLZ1_n6_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 10000,
+      "probe_fraction": 0.1
+    },
+    {
+      "task_id": "DTLZ1_n7_m3",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 20000,
+      "probe_fraction": 0.05
+    },
+    {
+      "task_id": "DTLZ2_n6_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "DTLZ2_n7_m3",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "ZDT1_n30_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "ZDT2_n30_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "ZDT3_n30_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "ZDT6_n20_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 7,
+      "excluded_anchor_ids": [
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 700,
+      "total_probe_evaluations": 900,
+      "calibrated_budget": 5000,
+      "probe_fraction": 0.18
+    },
+    {
+      "task_id": "ZDT6_n30_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 10000,
+      "probe_fraction": 0.1
+    },
+    {
+      "task_id": "DTLZ2_n9_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    },
+    {
+      "task_id": "DTLZ2_n10_m3",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 6,
+      "excluded_anchor_ids": [
+        "mutation_half",
+        "mutation_double"
+      ],
+      "probe_anchor_evaluations": 600,
+      "total_probe_evaluations": 800,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.4
+    },
+    {
+      "task_id": "DTLZ2_n12_m2",
+      "probe_seeds": 2,
+      "initial_population_evaluations": 100,
+      "baseline_one_step_evaluations": 100,
+      "anchor_count": 8,
+      "excluded_anchor_ids": [],
+      "probe_anchor_evaluations": 800,
+      "total_probe_evaluations": 1000,
+      "calibrated_budget": 2000,
+      "probe_fraction": 0.5
+    }
+  ]
+}

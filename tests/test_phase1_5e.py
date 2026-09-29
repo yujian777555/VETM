@@ -7,6 +7,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from vetm.nsga2 import NSGA2Config, run_nsga2
 from vetm.problems import get_problem
 from vetm.validators import NearestNeighborValidator
+from vetm import metric_calibration
 
 def test_injected_initial_population_is_byte_identical_across_branches():
     problem = get_problem("ZDT1", n_var=10)
@@ -38,3 +39,8 @@ def test_fingerprint_source_has_no_oracle_calls():
     source = (ROOT / "experiments" / "phase1_5e_fingerprint.py").read_text(encoding="utf-8")
     for forbidden in ("reference_front", "calibrate_task", "igd(", "IGD("):
         assert forbidden not in source
+
+def test_empirical_mean_score_identical_front_is_zero_for_two_and_three_objectives():
+    from experiments.phase1_5e_fingerprint import empirical_mean_score
+    for front in (np.array([[.1, .2], [.3, .4]]), np.array([[.1, .2, .3], [.3, .4, .5]])):
+        assert empirical_mean_score(front) - empirical_mean_score(front) == 0.0

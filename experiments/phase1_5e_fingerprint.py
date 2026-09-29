@@ -51,6 +51,9 @@ def finite_crowding(objectives):
     finite = distances[np.isfinite(distances)]
     return float(finite.mean()) if len(finite) else 0.0
 
+def empirical_mean_score(norm_front):
+    return float(np.mean(np.sum(norm_front, axis=1)))
+
 def offspring_survival_fraction(initial, final):
     initial_rows = {row.tobytes() for row in np.asarray(initial)}
     return float(np.mean([row.tobytes() not in initial_rows for row in np.asarray(final)]))
@@ -102,7 +105,7 @@ def main():
             base_nd=len(base_front)/50
             base_norm_front=(base_front-center)/scale
             base_spread=float(np.mean(np.std(base_norm_front,axis=0)))
-            base_mean=float(np.mean(base_norm_front))
+            base_mean=empirical_mean_score(base_norm_front)
             base_crowd=finite_crowding(baseline["objectives"])
             base_hv=empirical_hv(base_front,center,scale,reference)
             base_survival=offspring_survival_fraction(initial, baseline["population"])
@@ -114,7 +117,7 @@ def main():
                 spread=float(np.mean(np.std(norm_front,axis=0)))
                 crowd=finite_crowding(branch["objectives"])
                 hv=empirical_hv(front,center,scale,reference)
-                improvement=float(np.mean(np.sum(norm_front,axis=1))-base_mean)
+                improvement=empirical_mean_score(norm_front)-base_mean
                 seed_features[anchor]={"delta_nd_fraction":nd-base_nd,"dominance_win_rate":dominance_rate(front,base_front)-dominance_rate(base_front,front),"delta_objective_spread":spread-base_spread,"delta_crowding":crowd-base_crowd,"delta_empirical_hv":hv-base_hv,"delta_empirical_mean":improvement,"delta_offspring_survival":offspring_survival_fraction(initial, branch["population"])-base_survival}
             per_seed.append(seed_features)
             seed_row={"task_id":task["task_id"],"probe_seed":seed}
