@@ -1,0 +1,6 @@
+{
+  "n_permutations": 1000,
+  "p_value": 0.307,
+  "real_mae": 0.21214543823104656,
+  "shuffled_mean": 0.28410347632027055
+}

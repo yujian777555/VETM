@@ -133,11 +133,15 @@ def hypervolume_2d(values: np.ndarray, reference: np.ndarray | None = None) -> f
 
 
 class NSGA2:
-    def __init__(self, problem: ProblemSpec, config: NSGA2Config | None = None, seed: int = 0):
+    def __init__(self, problem: ProblemSpec, config: NSGA2Config | None = None, seed: int = 0,
+                 initial_population: np.ndarray | None = None,
+                 initial_objectives: np.ndarray | None = None):
         self.problem = problem
         self.config = config or NSGA2Config()
         self.seed = int(seed)
         self.rng = np.random.default_rng(self.seed)
+        self.initial_population = initial_population
+        self.initial_objectives = initial_objectives
 
     def run(self) -> dict[str, Any]:
         cfg = self.config
@@ -147,11 +151,29 @@ class NSGA2:
         mutation_probability = (1.0 / self.problem.n_var if cfg.mutation_probability is None else cfg.mutation_probability)
         if cfg.tournament_size < 2:
             raise ValueError("tournament_size 至少为 2")
-        population = self.rng.uniform(lower, upper, size=(cfg.population_size, self.problem.n_var))
-        objectives = self.problem.evaluate(population)
+        if self.initial_population is None:
+            population = self.rng.uniform(lower, upper, size=(cfg.population_size, self.problem.n_var))
+            objectives = self.problem.evaluate(population)
+            function_evaluations = cfg.population_size
+        else:
+            population = np.asarray(self.initial_population, dtype=float).copy()
+            expected = (cfg.population_size, self.problem.n_var)
+            if population.shape != expected:
+                raise ValueError(f"initial_population shape 必须为 {expected}")
+            if np.any(population < lower) or np.any(population > upper):
+                raise ValueError("initial_population 超出变量边界")
+            if self.initial_objectives is None:
+                objectives = self.problem.evaluate(population)
+                function_evaluations = cfg.population_size
+            else:
+                objectives = np.asarray(self.initial_objectives, dtype=float).copy()
+                if objectives.shape != (cfg.population_size, self.problem.n_obj):
+                    raise ValueError("initial_objectives shape 与任务不一致")
+                function_evaluations = 0
+        initial_population = population.copy()
+        initial_objectives = objectives.copy()
         history: list[dict[str, float | int]] = []
         trajectory_fronts: list[np.ndarray] = []
-        function_evaluations = cfg.population_size
         for generation in range(cfg.generations + 1):
             ranks, crowd = _rank_and_crowding(objectives)
             first = objectives[ranks == 0]
@@ -201,6 +223,8 @@ class NSGA2:
         ranks, _ = _rank_and_crowding(objectives)
         return {
             "population": population,
+            "initial_population": initial_population,
+            "initial_objectives": initial_objectives,
             "objectives": objectives,
             "front": objectives[ranks == 0],
             "history": history,
@@ -220,5 +244,8 @@ class NSGA2:
         }
 
 
-def run_nsga2(problem: ProblemSpec, config: NSGA2Config | None = None, seed: int = 0) -> dict[str, Any]:
-    return NSGA2(problem, config=config, seed=seed).run()
+def run_nsga2(problem: ProblemSpec, config: NSGA2Config | None = None, seed: int = 0,
+              initial_population: np.ndarray | None = None,
+              initial_objectives: np.ndarray | None = None) -> dict[str, Any]:
+    return NSGA2(problem, config=config, seed=seed, initial_population=initial_population,
+                 initial_objectives=initial_objectives).run()

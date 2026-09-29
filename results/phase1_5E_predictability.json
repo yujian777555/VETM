@@ -1,0 +1,465 @@
+{
+  "condition_count": 390,
+  "task_configuration_blocks": 20,
+  "primary": "causal_intervention_ridge",
+  "leave_problem_out": {
+    "DTLZ1": {
+      "intervention_only": {
+        "mae": 0.17155682730736724,
+        "spearman": 0.3576022822352387
+      },
+      "passive_intervention": {
+        "mae": 0.1708051173833332,
+        "spearman": -0.1064827849699757
+      },
+      "causal_intervention": {
+        "mae": 1.4144109382578047,
+        "spearman": -0.15038934300164847
+      },
+      "passive_causal_intervention": {
+        "mae": 1.2594879638063752,
+        "spearman": -0.15038934300164847
+      }
+    },
+    "DTLZ2": {
+      "intervention_only": {
+        "mae": 0.0414395730464655,
+        "spearman": -0.14479904318764347
+      },
+      "passive_intervention": {
+        "mae": 0.1176605906385534,
+        "spearman": -0.49132962275819414
+      },
+      "causal_intervention": {
+        "mae": 0.038273890146572426,
+        "spearman": 0.06293135435992579
+      },
+      "passive_causal_intervention": {
+        "mae": 0.03742218504179999,
+        "spearman": 0.04341372912801484
+      }
+    },
+    "ZDT1": {
+      "intervention_only": {
+        "mae": 0.03689580078585646,
+        "spearman": 0.3454849221568204
+      },
+      "passive_intervention": {
+        "mae": 0.034086355399572096,
+        "spearman": 0.2973022855209327
+      },
+      "causal_intervention": {
+        "mae": 0.03225384108996884,
+        "spearman": 0.3091143990894829
+      },
+      "passive_causal_intervention": {
+        "mae": 0.03247732660562287,
+        "spearman": 0.3363683902919192
+      }
+    },
+    "ZDT2": {
+      "intervention_only": {
+        "mae": 0.06308084648026704,
+        "spearman": 0.24948438857826538
+      },
+      "passive_intervention": {
+        "mae": 0.06455970317409376,
+        "spearman": 0.12971792426712606
+      },
+      "causal_intervention": {
+        "mae": 0.061885196271305606,
+        "spearman": 0.23596542495924208
+      },
+      "passive_causal_intervention": {
+        "mae": 0.06077289308420809,
+        "spearman": 0.2829677935340983
+      }
+    },
+    "ZDT3": {
+      "intervention_only": {
+        "mae": 0.03263850600048349,
+        "spearman": 0.3056437770475676
+      },
+      "passive_intervention": {
+        "mae": 0.03221583660245718,
+        "spearman": 0.35888523178196813
+      },
+      "causal_intervention": {
+        "mae": 0.033257564285232896,
+        "spearman": 0.3543326463440894
+      },
+      "passive_causal_intervention": {
+        "mae": 0.034457200817567694,
+        "spearman": 0.26912547294595346
+      }
+    },
+    "ZDT4": {
+      "intervention_only": {
+        "mae": 0.17052391126414965,
+        "spearman": 0.26590612476451797
+      },
+      "passive_intervention": {
+        "mae": 0.1668785964471151,
+        "spearman": 0.28784557400251454
+      },
+      "causal_intervention": {
+        "mae": 0.16993608320080755,
+        "spearman": 0.25713034506931937
+      },
+      "passive_causal_intervention": {
+        "mae": 0.16979863608395454,
+        "spearman": 0.25713034506931937
+      }
+    },
+    "ZDT6": {
+      "intervention_only": {
+        "mae": 0.05598921686138375,
+        "spearman": 0.49121690204474666
+      },
+      "passive_intervention": {
+        "mae": 0.05571428485997855,
+        "spearman": 0.5925584131470746
+      },
+      "causal_intervention": {
+        "mae": 0.2026444789478021,
+        "spearman": 0.3340562666578799
+      },
+      "passive_causal_intervention": {
+        "mae": 0.11698701047365184,
+        "spearman": 0.4463415022505921
+      }
+    }
+  },
+  "per_task_configuration_mae": {
+    "DTLZ1_n6_m2": {
+      "intervention_only": 0.1840368131395636,
+      "passive_intervention": 0.15745612597569775,
+      "causal_intervention": 0.4003478319390024,
+      "passive_causal_intervention": 0.5154059638881059,
+      "zero_gain": 0.19065245943696602,
+      "global_intervention_mean": 0.1810311128390571
+    },
+    "DTLZ1_n7_m3": {
+      "intervention_only": 0.15907684147517087,
+      "passive_intervention": 0.18415410879096866,
+      "causal_intervention": 2.4284740445766073,
+      "passive_causal_intervention": 2.003569963724644,
+      "zero_gain": 0.1669238148644424,
+      "global_intervention_mean": 0.15009314210430377
+    },
+    "DTLZ2_n10_m3": {
+      "intervention_only": 0.039381139978393855,
+      "passive_intervention": 0.2486524284424673,
+      "causal_intervention": 0.039617982513964145,
+      "passive_causal_intervention": 0.03753337190555794,
+      "zero_gain": 0.017727588428745434,
+      "global_intervention_mean": 0.043221507736109055
+    },
+    "DTLZ2_n12_m2": {
+      "intervention_only": 0.0413796374473613,
+      "passive_intervention": 0.03632089275452623,
+      "causal_intervention": 0.03618935611233367,
+      "passive_causal_intervention": 0.036418117874082695,
+      "zero_gain": 0.004083895543488621,
+      "global_intervention_mean": 0.04448223884034939
+    },
+    "DTLZ2_n6_m2": {
+      "intervention_only": 0.042957085457565304,
+      "passive_intervention": 0.037476803813600953,
+      "causal_intervention": 0.03899954106396697,
+      "passive_causal_intervention": 0.03668195802133771,
+      "zero_gain": 0.0004969101726976579,
+      "global_intervention_mean": 0.04575689717331816
+    },
+    "DTLZ2_n7_m3": {
+      "intervention_only": 0.04100140984287286,
+      "passive_intervention": 0.2352940156567333,
+      "causal_intervention": 0.039876364931196236,
+      "passive_causal_intervention": 0.03947231447763164,
+      "zero_gain": 0.010108579981493272,
+      "global_intervention_mean": 0.04337759286179384
+    },
+    "DTLZ2_n9_m2": {
+      "intervention_only": 0.0423756708527306,
+      "passive_intervention": 0.03710840441563486,
+      "causal_intervention": 0.03675341072977069,
+      "passive_causal_intervention": 0.03701072227357787,
+      "zero_gain": 0.0015516105340487615,
+      "global_intervention_mean": 0.045315921979986344
+    },
+    "ZDT1_n10_m2": {
+      "intervention_only": 0.027560745388519964,
+      "passive_intervention": 0.02273907516315272,
+      "causal_intervention": 0.021561821819050277,
+      "passive_causal_intervention": 0.023717800565693566,
+      "zero_gain": 0.015944590454464485,
+      "global_intervention_mean": 0.034119534915596265
+    },
+    "ZDT1_n20_m2": {
+      "intervention_only": 0.04126981919480244,
+      "passive_intervention": 0.02914048033646024,
+      "causal_intervention": 0.029756686932509314,
+      "passive_causal_intervention": 0.028520847303872568,
+      "zero_gain": 0.03210355919601302,
+      "global_intervention_mean": 0.03625277301772062
+    },
+    "ZDT1_n30_m2": {
+      "intervention_only": 0.04160878592482745,
+      "passive_intervention": 0.049564852934126755,
+      "causal_intervention": 0.04478355584692804,
+      "passive_causal_intervention": 0.04455753168021849,
+      "zero_gain": 0.03193854439951012,
+      "global_intervention_mean": 0.0419138369867741
+    },
+    "ZDT2_n10_m2": {
+      "intervention_only": 0.07159402457271034,
+      "passive_intervention": 0.06939816934994009,
+      "causal_intervention": 0.06072720814082212,
+      "passive_causal_intervention": 0.06205092749371592,
+      "zero_gain": 0.06113667409720728,
+      "global_intervention_mean": 0.07309402828425665
+    },
+    "ZDT2_n20_m2": {
+      "intervention_only": 0.06634112453091831,
+      "passive_intervention": 0.061786771141892294,
+      "causal_intervention": 0.06148584557826798,
+      "passive_causal_intervention": 0.061439103021347495,
+      "zero_gain": 0.05999056077243709,
+      "global_intervention_mean": 0.06227121889205937
+    },
+    "ZDT2_n30_m2": {
+      "intervention_only": 0.05189606314432721,
+      "passive_intervention": 0.06259744573763114,
+      "causal_intervention": 0.06336466815365066,
+      "passive_causal_intervention": 0.058925860954893196,
+      "zero_gain": 0.05044060408382487,
+      "global_intervention_mean": 0.05211430438687781
+    },
+    "ZDT3_n10_m2": {
+      "intervention_only": 0.026506778247032875,
+      "passive_intervention": 0.027363903315628445,
+      "causal_intervention": 0.02874054538617888,
+      "passive_causal_intervention": 0.03395750754919996,
+      "zero_gain": 0.014959815520984871,
+      "global_intervention_mean": 0.03278143186803997
+    },
+    "ZDT3_n20_m2": {
+      "intervention_only": 0.02908055890046878,
+      "passive_intervention": 0.027452412196506987,
+      "causal_intervention": 0.029809997138645655,
+      "passive_causal_intervention": 0.0289174804658667,
+      "zero_gain": 0.019927080441099924,
+      "global_intervention_mean": 0.030800503875902694
+    },
+    "ZDT3_n30_m2": {
+      "intervention_only": 0.04184369711127555,
+      "passive_intervention": 0.04135042641059718,
+      "causal_intervention": 0.040823921028592065,
+      "passive_causal_intervention": 0.04019464375663298,
+      "zero_gain": 0.026197463599526023,
+      "global_intervention_mean": 0.04112447732943848
+    },
+    "ZDT4_n10_m2": {
+      "intervention_only": 0.17052391126414965,
+      "passive_intervention": 0.1668785964471151,
+      "causal_intervention": 0.16993608320080755,
+      "passive_causal_intervention": 0.16979863608395454,
+      "zero_gain": 0.17658574542028643,
+      "global_intervention_mean": 0.1607914018748274
+    },
+    "ZDT6_n10_m2": {
+      "intervention_only": 0.04891006716998464,
+      "passive_intervention": 0.05008347710582478,
+      "causal_intervention": 0.24716906722367102,
+      "passive_causal_intervention": 0.1330886523534351,
+      "zero_gain": 0.04736234859265585,
+      "global_intervention_mean": 0.04893486026725311
+    },
+    "ZDT6_n20_m2": {
+      "intervention_only": 0.04098272501540736,
+      "passive_intervention": 0.039325965162456365,
+      "causal_intervention": 0.08735033438891071,
+      "passive_causal_intervention": 0.05908628659564823,
+      "zero_gain": 0.04144382954593199,
+      "global_intervention_mean": 0.041614482396967085
+    },
+    "ZDT6_n30_m2": {
+      "intervention_only": 0.07697057632189046,
+      "passive_intervention": 0.0766324559390707,
+      "causal_intervention": 0.2698755574166736,
+      "passive_causal_intervention": 0.1566961383719612,
+      "zero_gain": 0.0825686213853153,
+      "global_intervention_mean": 0.07867849952483227
+    }
+  },
+  "macro_task_mae": {
+    "intervention_only": 0.06426487374899867,
+    "passive_intervention": 0.0830388405545016,
+    "causal_intervention": 0.20878219120607744,
+    "passive_causal_intervention": 0.18035219141806888,
+    "zero_gain": 0.05260721482355698,
+    "global_intervention_mean": 0.06438848835777317
+  },
+  "macro_task_spearman_causal": 0.2763266877816598,
+  "task_block_bootstrap": {
+    "zero_gain": {
+      "mean": 0.1561749763825205,
+      "ci95_low": 0.023645808797187664,
+      "ci95_high": 0.39177951577126563,
+      "n_tasks": 20
+    },
+    "intervention_only": {
+      "mean": 0.1445173174570788,
+      "ci95_low": 0.008891831908295306,
+      "ci95_high": 0.38296691366986013,
+      "n_tasks": 20
+    },
+    "global_intervention_mean": {
+      "mean": 0.1443937028483043,
+      "ci95_low": 0.0082805366957982,
+      "ci95_high": 0.38391011186286167,
+      "n_tasks": 20
+    }
+  },
+  "shuffled_context_mae_mean": 0.28410347632027055,
+  "shuffled_context_mae_q95": 0.495511584333658,
+  "permutation_p_value": 0.307,
+  "primary_gate": false,
+  "causal_feature_columns": [
+    "crossover_eta_12_available",
+    "crossover_eta_12_delta_crowding_mean",
+    "crossover_eta_12_delta_crowding_std",
+    "crossover_eta_12_delta_empirical_hv_mean",
+    "crossover_eta_12_delta_empirical_hv_std",
+    "crossover_eta_12_delta_empirical_mean_mean",
+    "crossover_eta_12_delta_empirical_mean_std",
+    "crossover_eta_12_delta_nd_fraction_mean",
+    "crossover_eta_12_delta_nd_fraction_std",
+    "crossover_eta_12_delta_objective_spread_mean",
+    "crossover_eta_12_delta_objective_spread_std",
+    "crossover_eta_12_delta_offspring_survival_mean",
+    "crossover_eta_12_delta_offspring_survival_std",
+    "crossover_eta_12_dominance_win_rate_mean",
+    "crossover_eta_12_dominance_win_rate_std",
+    "crossover_eta_30_available",
+    "crossover_eta_30_delta_crowding_mean",
+    "crossover_eta_30_delta_crowding_std",
+    "crossover_eta_30_delta_empirical_hv_mean",
+    "crossover_eta_30_delta_empirical_hv_std",
+    "crossover_eta_30_delta_empirical_mean_mean",
+    "crossover_eta_30_delta_empirical_mean_std",
+    "crossover_eta_30_delta_nd_fraction_mean",
+    "crossover_eta_30_delta_nd_fraction_std",
+    "crossover_eta_30_delta_objective_spread_mean",
+    "crossover_eta_30_delta_objective_spread_std",
+    "crossover_eta_30_delta_offspring_survival_mean",
+    "crossover_eta_30_delta_offspring_survival_std",
+    "crossover_eta_30_dominance_win_rate_mean",
+    "crossover_eta_30_dominance_win_rate_std",
+    "crossover_prob_08_available",
+    "crossover_prob_08_delta_crowding_mean",
+    "crossover_prob_08_delta_crowding_std",
+    "crossover_prob_08_delta_empirical_hv_mean",
+    "crossover_prob_08_delta_empirical_hv_std",
+    "crossover_prob_08_delta_empirical_mean_mean",
+    "crossover_prob_08_delta_empirical_mean_std",
+    "crossover_prob_08_delta_nd_fraction_mean",
+    "crossover_prob_08_delta_nd_fraction_std",
+    "crossover_prob_08_delta_objective_spread_mean",
+    "crossover_prob_08_delta_objective_spread_std",
+    "crossover_prob_08_delta_offspring_survival_mean",
+    "crossover_prob_08_delta_offspring_survival_std",
+    "crossover_prob_08_dominance_win_rate_mean",
+    "crossover_prob_08_dominance_win_rate_std",
+    "mutation_double_available",
+    "mutation_double_delta_crowding_mean",
+    "mutation_double_delta_crowding_std",
+    "mutation_double_delta_empirical_hv_mean",
+    "mutation_double_delta_empirical_hv_std",
+    "mutation_double_delta_empirical_mean_mean",
+    "mutation_double_delta_empirical_mean_std",
+    "mutation_double_delta_nd_fraction_mean",
+    "mutation_double_delta_nd_fraction_std",
+    "mutation_double_delta_objective_spread_mean",
+    "mutation_double_delta_objective_spread_std",
+    "mutation_double_delta_offspring_survival_mean",
+    "mutation_double_delta_offspring_survival_std",
+    "mutation_double_dominance_win_rate_mean",
+    "mutation_double_dominance_win_rate_std",
+    "mutation_eta_30_available",
+    "mutation_eta_30_delta_crowding_mean",
+    "mutation_eta_30_delta_crowding_std",
+    "mutation_eta_30_delta_empirical_hv_mean",
+    "mutation_eta_30_delta_empirical_hv_std",
+    "mutation_eta_30_delta_empirical_mean_mean",
+    "mutation_eta_30_delta_empirical_mean_std",
+    "mutation_eta_30_delta_nd_fraction_mean",
+    "mutation_eta_30_delta_nd_fraction_std",
+    "mutation_eta_30_delta_objective_spread_mean",
+    "mutation_eta_30_delta_objective_spread_std",
+    "mutation_eta_30_delta_offspring_survival_mean",
+    "mutation_eta_30_delta_offspring_survival_std",
+    "mutation_eta_30_dominance_win_rate_mean",
+    "mutation_eta_30_dominance_win_rate_std",
+    "mutation_eta_7_available",
+    "mutation_eta_7_delta_crowding_mean",
+    "mutation_eta_7_delta_crowding_std",
+    "mutation_eta_7_delta_empirical_hv_mean",
+    "mutation_eta_7_delta_empirical_hv_std",
+    "mutation_eta_7_delta_empirical_mean_mean",
+    "mutation_eta_7_delta_empirical_mean_std",
+    "mutation_eta_7_delta_nd_fraction_mean",
+    "mutation_eta_7_delta_nd_fraction_std",
+    "mutation_eta_7_delta_objective_spread_mean",
+    "mutation_eta_7_delta_objective_spread_std",
+    "mutation_eta_7_delta_offspring_survival_mean",
+    "mutation_eta_7_delta_offspring_survival_std",
+    "mutation_eta_7_dominance_win_rate_mean",
+    "mutation_eta_7_dominance_win_rate_std",
+    "mutation_half_available",
+    "mutation_half_delta_crowding_mean",
+    "mutation_half_delta_crowding_std",
+    "mutation_half_delta_empirical_hv_mean",
+    "mutation_half_delta_empirical_hv_std",
+    "mutation_half_delta_empirical_mean_mean",
+    "mutation_half_delta_empirical_mean_std",
+    "mutation_half_delta_nd_fraction_mean",
+    "mutation_half_delta_nd_fraction_std",
+    "mutation_half_delta_objective_spread_mean",
+    "mutation_half_delta_objective_spread_std",
+    "mutation_half_delta_offspring_survival_mean",
+    "mutation_half_delta_offspring_survival_std",
+    "mutation_half_dominance_win_rate_mean",
+    "mutation_half_dominance_win_rate_std",
+    "selection_tournament_6_available",
+    "selection_tournament_6_delta_crowding_mean",
+    "selection_tournament_6_delta_crowding_std",
+    "selection_tournament_6_delta_empirical_hv_mean",
+    "selection_tournament_6_delta_empirical_hv_std",
+    "selection_tournament_6_delta_empirical_mean_mean",
+    "selection_tournament_6_delta_empirical_mean_std",
+    "selection_tournament_6_delta_nd_fraction_mean",
+    "selection_tournament_6_delta_nd_fraction_std",
+    "selection_tournament_6_delta_objective_spread_mean",
+    "selection_tournament_6_delta_objective_spread_std",
+    "selection_tournament_6_delta_offspring_survival_mean",
+    "selection_tournament_6_delta_offspring_survival_std",
+    "selection_tournament_6_dominance_win_rate_mean",
+    "selection_tournament_6_dominance_win_rate_std"
+  ],
+  "static_feature_columns": [
+    "bound_width_mean",
+    "bound_width_std",
+    "budget",
+    "lower_max",
+    "lower_mean",
+    "lower_min",
+    "lower_std",
+    "n_obj",
+    "n_var",
+    "upper_max",
+    "upper_mean",
+    "upper_min",
+    "upper_std"
+  ]
+}

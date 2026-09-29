@@ -1,0 +1,8 @@
+{
+  "status": "diagnostic_recomputed",
+  "task_configuration_blocks": 20,
+  "previous_phase1_5D_problem_block_count": 7,
+  "warning": "Phase 1.5D stored split-level aggregates rather than per-task predictions; exact task-block bootstrap cannot be reconstructed from those aggregates alone.",
+  "action": "Phase 1.5E uses fresh condition-level leave-one-problem-out predictions with task configuration blocks.",
+  "primary_gate": "NO-GO"
+}
